@@ -5,6 +5,7 @@ import { Calendar } from "./components/Calendar";
 import "./app.css";
 
 function App() {
+  
   let calendarEle: any;
 
   useEffect(() => {
@@ -13,12 +14,16 @@ function App() {
   
 
   const startCalendly = () => {
-    calendarEle.style.display = 'block';
+    if (calendarEle.style.display === 'none') {
+      calendarEle.style.display = 'block';
+    } else {
+      calendarEle.style.display = 'none';
+    }
   }
 
   return <div className="App">
     <Calendar />
-    <button onClick={startCalendly} >Schedule</button>
+    <button style={{ position: 'absolute', top: 0, right: 0}} onClick={startCalendly} >Schedule</button>
   </div>;
 }
 
